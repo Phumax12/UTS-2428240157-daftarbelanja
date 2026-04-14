@@ -1,0 +1,54 @@
+let npm = document.getElementById("NamaBarang");
+let nama = document.getElementById("Jumlah");
+let image = document.getElementById("Keterangan");
+
+function simpan() {
+
+    console.log(NamaBarang.value)
+    console.log(Jumlah.value)
+    console.log(Keterangan.value)
+
+
+    
+    if (localStorage.getItem("DaftarBelanja") === null) {
+        //simpan array ksoong[]
+        localStorage.setItem("DaftarBelanja", "[]")
+    }
+    //panggil local storage(konversi string ke object)
+    let data = JSON.parse(localStorage.getItem("DaftarBelanja"))
+    console.log(data)
+
+    //simpan value.npm dan nama ke dalam object
+    data.push({
+        npm: NamaBarang.value,
+        nama: Jumlah.value,
+        image: Keterangan.value
+    })
+    console.log(data)
+
+    //simpan data terbaru kedalam local storage
+    //konver dari ob ject ke string
+    localStorage.setItem("DaftarBelanja", JSON.stringify(data))
+    //panggil tampil()
+    tampil()
+}
+
+function tampil() {
+    //panggil dulu locak storage 
+    let hasil = JSON.parse(localStorage.getItem("DaftarBelanja"))
+
+    //clear
+    document.getElementById("list-mhs").innerHTML = ""
+
+    //lakukan perulangan atau looping(foreacrh)
+    hasil.forEach(element => {
+        // console.log(element)
+        document.getElementById("list-mhs").innerHTML += `<div class="col-lg-4 col-md-6"> 
+        <img src="${element.image}" alt="dak moncol" class="card-img-top img-fluid rounded-5">
+        <h4 class="text-center bg-dark rounded-5 text-primary p-2 mt-3">${element.npm}</h4> 
+        <h6 class="text-center bg-dark rounded-5 text-white p-2"> ${element.nama} </h6>
+        <div>`
+    });
+}
+//jalankan function tampil()
+tampil()
