@@ -1,6 +1,6 @@
-let npm = document.getElementById("NamaBarang");
-let nama = document.getElementById("Jumlah");
-let image = document.getElementById("Keterangan");
+let NamaBarang = document.getElementById("NamaBarang");
+let Jumlah = document.getElementById("Jumlah");
+let Keterangan = document.getElementById("Keterangan");
 
 function simpan() {
 
@@ -20,9 +20,9 @@ function simpan() {
 
     //simpan value.npm dan nama ke dalam object
     data.push({
-        npm: NamaBarang.value,
-        nama: Jumlah.value,
-        image: Keterangan.value
+        NamaBarang: NamaBarang.value,
+        Jumlah: Jumlah.value,
+        Keterangan: Keterangan.value
     })
     console.log(data)
 
@@ -38,15 +38,15 @@ function tampil() {
     let hasil = JSON.parse(localStorage.getItem("DaftarBelanja"))
 
     //clear
-    document.getElementById("list-mhs").innerHTML = ""
+    document.getElementById("list-barang").innerHTML = ""
 
     //lakukan perulangan atau looping(foreacrh)
     hasil.forEach(element => {
         // console.log(element)
-        document.getElementById("list-mhs").innerHTML += `<div class="col-lg-4 col-md-6"> 
-        <img src="${element.image}" alt="dak moncol" class="card-img-top img-fluid rounded-5">
-        <h4 class="text-center bg-dark rounded-5 text-primary p-2 mt-3">${element.npm}</h4> 
-        <h6 class="text-center bg-dark rounded-5 text-white p-2"> ${element.nama} </h6>
+        document.getElementById("list-barang").innerHTML += `<div class="col-lg-4 col-md-6"> 
+        <img src="${element.Keterangan}" alt="dak moncol" class="card-img-top img-fluid rounded-5">
+        <h4 class="text-center bg-dark rounded-5 text-primary p-2 mt-3">${element.NamaBarang}</h4> 
+        <h6 class="text-center bg-dark rounded-5 text-white p-2"> ${element.Jumlah} </h6>
         <div>`
     });
 }
