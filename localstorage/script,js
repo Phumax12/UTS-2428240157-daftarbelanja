@@ -10,12 +10,12 @@ function simpan() {
 
 
     
-    if (localStorage.getItem("DaftarBelanja") === null) {
+    if (localStorage.getItem("Barang") === null) {
         //simpan array ksoong[]
-        localStorage.setItem("DaftarBelanja", "[]")
+        localStorage.setItem("Barang", "[]")
     }
     //panggil local storage(konversi string ke object)
-    let data = JSON.parse(localStorage.getItem("DaftarBelanja"))
+    let data = JSON.parse(localStorage.getItem("Barang"))
     console.log(data)
 
     //simpan value.npm dan nama ke dalam object
@@ -28,7 +28,7 @@ function simpan() {
 
     //simpan data terbaru kedalam local storage
     //konver dari ob ject ke string
-    localStorage.setItem("DaftarBelanja", JSON.stringify(data))
+    localStorage.setItem("Barang", JSON.stringify(data))
     //panggil tampil()
     tampil()
 }
