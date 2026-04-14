@@ -35,7 +35,7 @@ function simpan() {
 
 function tampil() {
     //panggil dulu locak storage 
-    let hasil = JSON.parse(localStorage.getItem("DaftarBelanja"))
+    let hasil = JSON.parse(localStorage.getItem("Barang"))
 
     //clear
     document.getElementById("list-barang").innerHTML = ""
